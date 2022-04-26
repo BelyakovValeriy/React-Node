@@ -1,0 +1,31 @@
+Could you please tell me how to validate "id" ? –
+Arj 1411
+ Feb 9 '17 at 8:47
+1
+@AnandRaj: what do you mean with: how to validate "id"? What kind of validation do you want? BTW, you can get the value of id in your function like this: var sampleId = req.params.id;. –
+Jochem Schulenklopper
+ Feb 25 '17 at 19:35
+4
+Use req.params.whatever in latest versions. –
+adelriosantiago
+ Sep 16 '17 at 5:28
+3
+Mind that req.params is different from req.query! expressjs.com/en/api.html#req.params expressjs.com/en/api.html#req.query @adelriosantiago –
+caesarsol
+ Jan 14 '19 at 11:28
+I don't believe this answer (from the OP) actually answers his own original question! He clearly asked how to access a querystring value IN COMBINATION WITH A POSITIONAL PARAMETER (:id). I have exactly the same issue, and this answer does NOT provide a solution ?! –
+Andy Lorenz
+ Jun 23 '20 at 21:38
+Add a comment
+
+89
+
+Use req.query, for getting he value in query string parameter in the route. Refer req.query. Say if in a route, http://localhost:3000/?name=satyam you want to get value for name parameter, then your 'Get' route handler will go like this :-
+
+app.get('/', function(req, res){
+    console.log(req.query.name);
+    res.send('Response send to client::'+req.query.name);
+
+});
+Share
+Follow
